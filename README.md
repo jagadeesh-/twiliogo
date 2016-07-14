@@ -1,69 +1,27 @@
 [![Build Status](https://travis-ci.org/carlosdp/twiliogo.png?branch=master)](https://travis-ci.org/carlosdp/twiliogo)
 # twilio-go
-The unofficial Go helper library for [Twilio](http://twilio.com).
+Forked from github.com/carlosdp/twiliogo and added UsageRecords API.
+
+
 
 # Installation
 
 ``` bash
-go get github.com/carlosdp/twiliogo
+go get github.com/jagadeesh-/twiliogo
 ```
 
 # Documentation
-
 [GoDoc](http://godoc.org/github.com/carlosdp/twiliogo)
 
 # Usage
 
-## Send a Text
 
-``` go
-package main
 
-import (
-  "fmt"
-  twilio "github.com/carlosdp/twiliogo"
-)
 
-func main() {
-  client := twilio.NewClient("<ACCOUNT_SID>", "<AUTH_TOKEN>")
 
-  message, err := twilio.NewMessage(client, "3334445555", "2223334444", twilio.Body("Hello World!"))
-
-  if err != nil {
-    fmt.Println(err)
-  } else {
-    fmt.Println(message.Status)
-  }
-}
-```
-
-## Make a Call
-
-``` go
-package main
-
-import (
-  "fmt"
-  twilio "github.com/carlosdp/twiliogo"
-)
-
-func main() {
-  client := twilio.NewClient("<ACCOUNT_SID>", "<AUTH_TOKEN>")
-
-  call, err := twilio.NewCall(client, "8883332222", "3334443333", nil)
-
-  if err != nil {
-    fmt.Println(err)
-  } else {
-    fmt.Println("Call Queued!")
-  }
-}
-```
 
 ## Implemented Resources
-- Calls
-- Messages
-- IncomingPhoneNumbers (partial)
+- Usage Records
 
 ## Run Tests
 Tests can be run using `go test`, as with most golang projects. This project also contains integration tests (where they can be done non-destructively using the API or the working Test Credential endpoints).
@@ -82,32 +40,7 @@ test:
 	go test -v
 ```
 
-## Contributing
-This is a side project meant to allow for quick adoption of the Twilio API for those programming web applications with it in Go. Feel free to submit pull requests so that we can cover all of the features the Twilio API has to offer!
 
-## To Do
-Here are a few things that the project needs in order to reach v1.0:
 
-1. Complete test coverage. Right now, tests cover the bare minimum of usage for each feature implemented.
-2. Complete IncomingPhoneNumber functionality.
-3. Implement the following resources:
-  - AvailablePhoneNumbers
-  - OutgoingCallerIds
-  - Applications
-  - ConnectApps
-  - AuthorizedConnectApps
-  - Conferences
-  - Queues
-  - Short Codes
-  - Recordings
-  - Transcriptions
-  - Notifications
-  - SIP Domains
-  - IpAccessControlLists
-  - CredentialLists
-  - Usage Records
-  - Usage Triggers
 
-## License
-This project is licensed under the [MIT License](http://opensource.org/licenses/MIT)
 
